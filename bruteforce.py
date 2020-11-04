@@ -33,7 +33,7 @@ def cracker(wordlist, input):
             return 0
             break
 
-    print("\n\n" + "-"*14 + "Password n ot found!" + "-"*14 + "\n")
+    print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
 
 if __name__ == '__main__':
     main()
