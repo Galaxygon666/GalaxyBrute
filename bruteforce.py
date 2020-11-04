@@ -18,7 +18,7 @@ def main():
     start_time = time.time()
     print("\n\n" + "-"*14 + "GalaxyBrute" + "-"*14 + "\n")
     cracker(wordlist_list, input_pass)
-    print("--- in %s seconds ---" % (time.time() - start_time))
+    print("------ %s seconds ------" % (time.time() - start_time))
 
 def cracker(wordlist, input):
     for ele in wordlist:
@@ -33,7 +33,7 @@ def cracker(wordlist, input):
             return 0
             break
 
-    return "Password not found :("
+    print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
 
 if __name__ == '__main__':
     main()
