@@ -1,4 +1,6 @@
 # GalaxyBrute
 
-An MD5 Bruteforcer with custom wordlist (other's don't work yet) <br>
+An hash Bruteforcer <br>
 Password/wordlist generator included
+
+<h1><b>!THIS DOESN'T WORK WITH SALTED HASHES!</b></h2>
