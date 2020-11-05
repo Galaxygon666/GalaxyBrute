@@ -2,19 +2,24 @@ import sys
 import hashlib
 import time
 import pyfiglet
+from termcolor import colored
 
 def main():
-    print(pyfiglet.figlet_format("GalaxyBrute"))
+    print(colored(pyfiglet.figlet_format("GalaxyBrute", font="slant"), "blue"))
+    print("!NO SALTED HASHES!")
     input_method = input("Choose hashing algorithm:\n" +
     "1. MD5\n" +
     "2. SHA-1\n" +
-    "3. SHA-256\n" +
+    "3. SHA-224\n" +
+    "4. SHA-256\n" +
+    "5. SHA-384\n" +
+    "6. SHA-512\n" +
     ">")
 
     input_pass = input("Insert encrypted password: \n>")
     input_wordlist = input("Input path to wordlist: \n>")
     wordlister(input_wordlist, input_pass, int(input_method))
-    
+
 
 def wordlister(wordlist, password, method):
     pass_test = []
@@ -40,12 +45,29 @@ def wordlister(wordlist, password, method):
     elif method == 3:
         start_time = time.time()
         print("\n\n" + "-"*14 + "GalaxyBrute" + "-"*14 + "\n")
+        sha224(pass_test, password)
+        print("------ %s seconds ------" % (time.time() - start_time))
+
+    elif method == 4:
+        start_time = time.time()
+        print("\n\n" + "-"*14 + "GalaxyBrute" + "-"*14 + "\n")
         sha256(pass_test, password)
+        print("------ %s seconds ------" % (time.time() - start_time))
+
+    elif method == 5:
+        start_time = time.time()
+        print("\n\n" + "-"*14 + "GalaxyBrute" + "-"*14 + "\n")
+        sha384(pass_test, password)
+        print("------ %s seconds ------" % (time.time() - start_time))
+
+    elif method == 6:
+        start_time = time.time()
+        print("\n\n" + "-"*14 + "GalaxyBrute" + "-"*14 + "\n")
+        sha512(pass_test, password)
         print("------ %s seconds ------" % (time.time() - start_time))
 
     else:
         print("Somn went wrong boss")
-
 
 
 def md5(wordlist, input):
@@ -78,6 +100,21 @@ def sha1(wordlist, input):
 
     print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
 
+def sha224(wordlist, input):
+    for ele in wordlist:
+        print("Trying: " + ele)
+        temp_pass = hashlib.sha224(ele.encode())
+        pass_guess = str(temp_pass.hexdigest())
+
+        if str(pass_guess) == str(input):
+            print("\n\n" + "-"*14 + "Password found!" + "-"*14 + "\n")
+            print("Password: " + ele + "\n")
+            print("-" * 43 + "\n")
+            return 0
+            break
+
+    print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
+
 def sha256(wordlist, input):
     for ele in wordlist:
         print("Trying: " + ele)
@@ -92,6 +129,39 @@ def sha256(wordlist, input):
             break
 
     print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
+
+def sha384(wordlist, input):
+    for ele in wordlist:
+        print("Trying: " + ele)
+        temp_pass = hashlib.sha384(ele.encode())
+        pass_guess = str(temp_pass.hexdigest())
+
+        if str(pass_guess) == str(input):
+            print("\n\n" + "-"*14 + "Password found!" + "-"*14 + "\n")
+            print("Password: " + ele + "\n")
+            print("-" * 43 + "\n")
+            return 0
+            break
+
+    print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
+
+
+def sha512(wordlist, input):
+    for ele in wordlist:
+        print("Trying: " + ele)
+        temp_pass = hashlib.sha512(ele.encode())
+        pass_guess = str(temp_pass.hexdigest())
+
+        if str(pass_guess) == str(input):
+            print("\n\n" + "-"*14 + "Password found!" + "-"*14 + "\n")
+            print("Password: " + ele + "\n")
+            print("-" * 43 + "\n")
+            return 0
+            break
+
+    print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
+
+
 
 if __name__ == '__main__':
     main()
