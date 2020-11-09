@@ -1,6 +1,6 @@
 # GalaxyBrute
 
-An hash Bruteforcer <br>
+An hash Bruteforcer that currently runs on CPU <br>
 Password/wordlist generator included
 
 <h1><b>!THIS DOESN'T WORK WITH SALTED HASHES!</b></h2>
