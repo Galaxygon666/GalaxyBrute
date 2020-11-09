@@ -7,11 +7,9 @@ Password/wordlist generator included
 
 
 <h3>TODO</h3>
-`
-[ ] - Combine hashing check functions to one 
+1. Combine hashing check functions to one 
 <br>
-[ ] - Find a way to cut down on the if/else statements
+2.  Find a way to cut down on the if/else statements
 <br>
-[ ] - Add CUDA support
+3.  Add CUDA support
 <br>
-`
