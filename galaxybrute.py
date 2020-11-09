@@ -21,16 +21,16 @@ def main():
 
     printy(pyfiglet.figlet_format("GalaxyBrute"), "b")
     print("!NO SALTED HASHES!")
-    input_gpu = input("Do you have an nvidea gpu with cuda? (y/n) \n")
-    if(input_gpu == "y"):
-        cuda_bool = True
-        clear()
-    elif(input_gpu == "n"):
-        cuda_bool = False
-        clear()
-    else:
-        print("Invalid input!")
-        sys.exit(1)
+    # input_gpu = input("Do you have an nvidea gpu with cuda? (y/n) \n")
+    # if(input_gpu == "y"):
+    #     cuda_bool = True
+    #     clear()
+    # elif(input_gpu == "n"):
+    #     cuda_bool = False
+    #     clear()
+    # else:
+    #     print("Invalid input!")
+    #     sys.exit(1)
 
     printy(pyfiglet.figlet_format("GalaxyBrute"), "b")
     input_method = input("Choose hashing algorithm:\n" +
