@@ -2,11 +2,37 @@ import sys
 import hashlib
 import time
 import pyfiglet
-from termcolor import colored
+from printy import printy
+from os import system, name
+
+# define our clear function
+def clear():
+
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 def main():
-    print(colored(pyfiglet.figlet_format("GalaxyBrute", font="slant"), "blue"))
+    cuda_bool = False
+
+    printy(pyfiglet.figlet_format("GalaxyBrute"), "b")
     print("!NO SALTED HASHES!")
+    input_gpu = input("Do you have an nvidea gpu with cuda? (y/n) \n")
+    if(input_gpu == "y"):
+        cuda_bool = True
+        clear()
+    elif(input_gpu == "n"):
+        cuda_bool = False
+        clear()
+    else:
+        print("Invalid input!")
+        sys.exit(1)
+
+    printy(pyfiglet.figlet_format("GalaxyBrute"), "b")
     input_method = input("Choose hashing algorithm:\n" +
     "1. MD5\n" +
     "2. SHA-1\n" +
@@ -69,7 +95,6 @@ def wordlister(wordlist, password, method):
     else:
         print("Somn went wrong boss")
 
-
 def md5(wordlist, input):
     for ele in wordlist:
         print("Trying: " + ele)
@@ -84,6 +109,7 @@ def md5(wordlist, input):
             break
 
     print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
+
 
 def sha1(wordlist, input):
     for ele in wordlist:
@@ -100,6 +126,7 @@ def sha1(wordlist, input):
 
     print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
 
+
 def sha224(wordlist, input):
     for ele in wordlist:
         print("Trying: " + ele)
@@ -115,6 +142,7 @@ def sha224(wordlist, input):
 
     print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
 
+
 def sha256(wordlist, input):
     for ele in wordlist:
         print("Trying: " + ele)
@@ -129,6 +157,7 @@ def sha256(wordlist, input):
             break
 
     print("\n\n" + "-"*14 + "Password not found!" + "-"*14 + "\n")
+
 
 def sha384(wordlist, input):
     for ele in wordlist:
